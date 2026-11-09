@@ -12,7 +12,7 @@ await copyFile('public/settings.json','dist/settings.json');
 await copyFile('public/favicon.svg','dist/favicon.svg');
 await copyFile('public/LICENSES.txt','dist/LICENSES.txt');
 for(const name of ['templates.pack','ocr.pack','pdf.pack'])for(const [file,bytes] of splitPack(name,new Uint8Array(await readFile('dist/'+name+'.zip'))))await writeFile('dist/'+file,bytes);
-await mkdir('output/sourcecraft/.sourcecraft',{recursive:true});await writeFile('output/sourcecraft/.sourcecraft/sites.yaml','site:\n  root: .\n  ref: main\n');
+await mkdir('output/sourcecraft/.sourcecraft',{recursive:true});await writeFile('output/sourcecraft/.sourcecraft/sites.yaml','site:\n  ref: main\n');
 for(const f of [...(await readdir('dist')).filter(f=>/\.pack\.(json|\d{3}\.txt)$/.test(f)),'index.html','settings.json','LICENSES.txt','favicon.svg']){const full=path.join('dist',f);if(!(await stat(full)).isDirectory())await copyFile(full,path.join('output/sourcecraft',f));}
 for(const name of ['templates.pack.zip','ocr.pack.zip','pdf.pack.zip'])for(const dir of ['dist','output/sourcecraft'])await unlink(dir+'/'+name).catch(e=>{if(e.code!=='ENOENT')throw e;});
 console.log('Пакет SourceCraft: output/sourcecraft. Тестовые обращения и исходные образцы не включены.');
