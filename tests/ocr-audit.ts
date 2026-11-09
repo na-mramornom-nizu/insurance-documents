@@ -1,0 +1,3 @@
+import {createLocalOcr} from '../src/ocr-local';
+import {suggest} from '../src/Ocr';
+export async function auditOcr(){const canvas=document.createElement('canvas');canvas.width=1600;canvas.height=450;const ctx=canvas.getContext('2d')!;ctx.fillStyle='white';ctx.fillRect(0,0,1600,450);ctx.fillStyle='black';ctx.font='40px Arial';ctx.fillText('ДОКУМЕНТ АВТОМОБИЛЯ',60,70);ctx.fillText('VIN: XTA00000000000001',60,150);ctx.fillText('Гос. номер: А123АА178',60,230);ctx.fillText('Полис: 1234567890',60,310);const w=await createLocalOcr(()=>{});try{const r=await w.recognize(canvas);return {text:r.data.text,fields:suggest(r.data.text)};}finally{await w.terminate();}}

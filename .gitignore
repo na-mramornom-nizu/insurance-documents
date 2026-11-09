@@ -1,0 +1,9 @@
+node_modules/
+dist/
+output/
+.playwright-cli/
+private-local/
+public/assets/*
+!public/assets/regular.ttf
+!public/assets/bold.ttf
+!public/assets/LICENSE_LIBERATION.txt

@@ -1,0 +1,21 @@
+import {Case,Config,Damage,DocumentRow,insurers,scenarios} from './model';
+export const CASE_FILE_LIMIT=30*1024*1024;
+const object=(v:unknown):v is Record<string,unknown>=>!!v&&typeof v==='object'&&!Array.isArray(v);
+const string=(v:unknown,max=100000):v is string=>typeof v==='string'&&v.length<=max;
+const fail=():never=>{throw new Error('Файл обращения повреждён или имеет неподдерживаемый формат. Выберите файл, сохранённый этим сервисом.');};
+export function exportCase(c:Case){return JSON.stringify({format:'insurance-case',version:1,savedAt:new Date().toISOString(),case:c},null,2);}
+export function importCase(text:string,cfg:Config):Case{
+ let data:unknown;try{data=JSON.parse(text);}catch{return fail();}
+ if(!object(data)||data.format!=='insurance-case'||data.version!==1||!object(data.case))return fail();const c=data.case;
+ if(!string(c.insurerId,80)||!insurers.some(i=>i.id===c.insurerId)||!Array.isArray(c.selected)||!c.selected.length||c.selected.length>200||!c.selected.every(id=>string(id,200)))return fail();
+ if(c.selected.some(id=>!cfg.templates.some(t=>t.id===id&&t.insurerId===c.insurerId)))throw new Error('В текущем справочнике нет одного из бланков этого обращения. Обратитесь к администратору для восстановления нужного шаблона.');
+ if(new Set(c.selected).size!==c.selected.length||!object(c.values)||Object.keys(c.values).length>5000||!object(c.links)||!object(c.images))return fail();
+ const values:Case['values']={};for(const [k,v]of Object.entries(c.values)){if(!k||k.length>300||['__proto__','prototype','constructor'].includes(k)||!(string(v)||typeof v==='boolean'))return fail();values[k]=v;}
+ if(!scenarios.some(s=>s.id===values['event.scenario']))values['event.scenario']='ordinary';
+ const roles=['applicant','owner','driver','policyholder','representative'];const links:Case['links']={};for(const [k,v]of Object.entries(c.links)){if(!roles.includes(k)||!string(v,50)||v!==''&&!roles.includes(v))return fail();links[k]=v;}
+ for(const role of roles){const seen=new Set<string>();let current=role;while(links[current]){if(seen.has(current))return fail();seen.add(current);current=links[current];}}
+ const images:Case['images']={};for(const [k,v]of Object.entries(c.images)){if(!k||k.length>300||['__proto__','prototype','constructor'].includes(k)||!string(v,CASE_FILE_LIMIT)||v!==''&&!/^data:image\/(png|jpeg);base64,[A-Za-z0-9+/=\r\n]+$/.test(v))return fail();images[k]=v;}
+ const damages=(rows:unknown):Damage[]=>{if(!Array.isArray(rows)||rows.length>1000)return fail();const ids=new Set<string>();return rows.map(r=>{if(!object(r)||!string(r.id,200)||ids.has(r.id))return fail();ids.add(r.id);for(const k of ['part','side','damage','hours','cost'])if(!string(r[k]))return fail();for(const k of ['repair','replace','paint'])if(typeof r[k]!=='boolean')return fail();if(r.text!==undefined&&!string(r.text))return fail();return {id:r.id,part:r.part as string,side:r.side as string,damage:r.damage as string,hours:r.hours as string,cost:r.cost as string,repair:r.repair as boolean,replace:r.replace as boolean,paint:r.paint as boolean,...(r.text!==undefined?{text:r.text as string}:{})};});};
+ if(!Array.isArray(c.documents)||c.documents.length>1000)return fail();const ids=new Set<string>();const documents:DocumentRow[]=c.documents.map(r=>{if(!object(r)||!string(r.id,200)||ids.has(r.id)||typeof r.present!=='boolean')return fail();ids.add(r.id);for(const k of ['name','status','pages','date'])if(!string(r[k]))return fail();return {id:r.id,name:r.name as string,status:r.status as string,pages:r.pages as string,date:r.date as string,present:r.present};});
+ return {insurerId:c.insurerId,selected:c.selected as string[],values,links,images,damages:damages(c.damages),previousDamages:damages(c.previousDamages),documents};
+}

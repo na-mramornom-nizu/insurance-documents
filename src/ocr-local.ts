@@ -1,0 +1,14 @@
+import {resource} from './resources';
+type Api={Init:(path:null,langs:string,oem:number,config:string)=>number;SetVariable:(key:string,value:string)=>void;SetImageFile:(exif:number,angle:number)=>number;Recognize:(monitor:null)=>number;GetUTF8Text:()=>string;End:()=>void};
+type Core={FS:{writeFile:(path:string,data:Uint8Array)=>void;unlink:(path:string)=>void};TessBaseAPI:new()=>Api;destroy?:(api:Api)=>void};
+let script:Promise<void>|undefined;
+export async function createLocalOcr(progress:(message:string)=>void){
+ progress('Подготовка локального распознавания…');
+ if(!script)script=resource('assets/ocr/core/tesseract-core-lstm.js').then(bytes=>new Promise<void>((resolve,reject)=>{const url=URL.createObjectURL(new Blob([new Uint8Array(bytes)],{type:'text/javascript'}));const s=document.createElement('script');s.src=url;s.onload=()=>{URL.revokeObjectURL(url);resolve();};s.onerror=()=>{URL.revokeObjectURL(url);script=undefined;reject(new Error('Не удалось загрузить модуль распознавания с сайта.'));};document.head.appendChild(s);}));await script;
+ const factory=(window as unknown as {TesseractCore:(options:unknown)=>Promise<Core>}).TesseractCore;
+ const core=await factory({wasmBinary:await resource('assets/ocr/core/tesseract-core-lstm.wasm'),TesseractProgress:(percent:number)=>progress(`Распознавание страницы: ${Math.max(0,Math.min(100,Math.round((percent-30)/70*100)))}%`)});
+ for(const lang of ['rus','eng']){progress('Загрузка языкового модуля: '+(lang==='rus'?'русский':'английский'));let bytes=await resource('assets/ocr/'+lang+'.traineddata.gz');if(bytes[0]===31&&bytes[1]===139)bytes=new Uint8Array(await new Response(new Blob([new Uint8Array(bytes)]).stream().pipeThrough(new DecompressionStream('gzip'))).arrayBuffer());core.FS.writeFile('/'+lang+'.traineddata',bytes);}
+ core.FS.writeFile('/config',new TextEncoder().encode('debug_file /dev/null\n'));const api=new core.TessBaseAPI();if(api.Init(null,'rus+eng',1,'/config')!==0)throw new Error('Не удалось подготовить распознавание.');api.SetVariable('tessedit_pageseg_mode','3');api.SetVariable('user_defined_dpi','150');let stopped=false;
+ return {async recognize(canvas:HTMLCanvasElement){if(stopped)throw new Error('Обработка отменена.');const blob=await new Promise<Blob>((resolve,reject)=>canvas.toBlob(b=>b?resolve(b):reject(new Error('Не удалось прочитать изображение.')),'image/png'));core.FS.writeFile('/input',new Uint8Array(await blob.arrayBuffer()));await new Promise(r=>setTimeout(r,30));if(stopped)throw new Error('Обработка отменена.');if(api.SetImageFile(1,0)!==0)throw new Error('Изображение не удалось передать в распознавание.');api.Recognize(null);const text=api.GetUTF8Text();core.FS.unlink('/input');return {data:{text}};},async terminate(){if(stopped)return;stopped=true;api.End();core.destroy?.(api);}};
+}
+

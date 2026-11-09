@@ -1,0 +1,3 @@
+export const PART_SIZE=2500000;
+function base64(bytes:Uint8Array){let s='';for(let i=0;i<bytes.length;i+=32768)s+=String.fromCharCode(...bytes.subarray(i,i+32768));return btoa(s);}
+export function splitPack(name:string,bytes:Uint8Array){const files=new Map<string,Uint8Array>();const parts:string[]=[];for(let i=0;i<bytes.length;i+=PART_SIZE){const file=name+'.'+String(parts.length+1).padStart(3,'0')+'.txt';parts.push(file);files.set(file,new TextEncoder().encode(base64(bytes.slice(i,i+PART_SIZE))));}files.set(name+'.json',new TextEncoder().encode(JSON.stringify({version:1,encoding:'base64',bytes:bytes.length,parts})));return files;}
