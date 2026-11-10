@@ -8632,7 +8632,8 @@
             "key": "name",
             "label": "name",
             "width": 366,
-            "align": "left"
+            "align": "left",
+            "fontSize": 11.04
           },
           {
             "key": "receiptText",
@@ -8661,7 +8662,8 @@
             "key": "name",
             "label": "name",
             "width": 366,
-            "align": "left"
+            "align": "left",
+            "fontSize": 11.04
           },
           {
             "key": "receiptText",
@@ -8690,7 +8692,8 @@
             "key": "name",
             "label": "name",
             "width": 366,
-            "align": "left"
+            "align": "left",
+            "fontSize": 11.04
           },
           {
             "key": "receiptText",
@@ -8719,7 +8722,8 @@
             "key": "name",
             "label": "name",
             "width": 366,
-            "align": "left"
+            "align": "left",
+            "fontSize": 11.04
           },
           {
             "key": "receiptText",
@@ -8748,7 +8752,8 @@
             "key": "name",
             "label": "name",
             "width": 366,
-            "align": "left"
+            "align": "left",
+            "fontSize": 11.04
           },
           {
             "key": "receiptText",

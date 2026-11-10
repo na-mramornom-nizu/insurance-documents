@@ -1,8 +1,8 @@
 {
   "format": "insurance-documents",
   "version": 1,
-  "revision": 6,
-  "updatedAt": "2026-11-10T19:18:00.000Z",
+  "revision": 7,
+  "updatedAt": "2026-11-10T19:54:37.402196+00:00",
   "employees": [
     {
       "id": "admin",
@@ -22,7 +22,12 @@
     "station.address": "",
     "station.phone": "",
     "staff.position": "",
-    "expert.organization": ""
+    "expert.organization": "",
+    "extra.sovcom-statement.consent44": true,
+    "extra.sovcom-statement.consent45": true,
+    "extra.sovcom-statement.consent46": true,
+    "extra.sovcom-statement.consent47": true,
+    "extra.sovcom-statement.consent48": true
   },
   "rules": {
     "applicant.name": {
@@ -8675,7 +8680,8 @@
               "key": "name",
               "label": "name",
               "width": 366,
-              "align": "left"
+              "align": "left",
+              "fontSize": 11.04
             },
             {
               "key": "receiptText",
@@ -8704,7 +8710,8 @@
               "key": "name",
               "label": "name",
               "width": 366,
-              "align": "left"
+              "align": "left",
+              "fontSize": 11.04
             },
             {
               "key": "receiptText",
@@ -8733,7 +8740,8 @@
               "key": "name",
               "label": "name",
               "width": 366,
-              "align": "left"
+              "align": "left",
+              "fontSize": 11.04
             },
             {
               "key": "receiptText",
@@ -8762,7 +8770,8 @@
               "key": "name",
               "label": "name",
               "width": 366,
-              "align": "left"
+              "align": "left",
+              "fontSize": 11.04
             },
             {
               "key": "receiptText",
@@ -8791,7 +8800,8 @@
               "key": "name",
               "label": "name",
               "width": 366,
-              "align": "left"
+              "align": "left",
+              "fontSize": 11.04
             },
             {
               "key": "receiptText",
