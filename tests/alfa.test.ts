@@ -1,0 +1,22 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {Config,Damage,freshCase,damageSummary,resolveValue} from '../src/model';
+import {tableRows,tableValue} from '../src/tables';
+import {exportCase,importCase} from '../src/case-file';
+const cfg=JSON.parse(readFileSync('public/settings.json','utf8')) as Config;
+const template=cfg.templates.find(t=>t.id==='alfa-inspection')!;
+const fixed=template.fields.find(f=>f.type==='table'&&f.rowLabels?.length)!;
+const extra=template.fields.find(f=>f.type==='table'&&!f.rowLabels?.length)!;
+const row=(patch:Partial<Damage>={}):Damage=>({id:'1',part:fixed.rowLabels![1],formRow:fixed.rowLabels![1],text:'Трещина стекла',side:'',damage:'',repair:true,replace:false,paint:false,hours:'',cost:'',...patch});
+function fixture(rows:Damage[]){const c=freshCase(cfg,cfg.employees[0]);c.insurerId='alfa';c.selected=['alfa-inspection'];c.damages=rows;return c;}
+test('Альфа: повреждение попадает напротив выбранной детали, а соседние строки пусты',()=>{const rows=tableRows(fixture([row()]),template,fixed);assert.equal(rows.length,39);assert.equal(tableValue(rows[1],'damage'),'Трещина стекла');assert.equal(tableValue(rows[1],'repair'),'X');assert.equal(tableValue(rows[1],'selected'),'X');assert.deepEqual(rows[0],{});assert.deepEqual(rows[2],{});});
+test('Альфа: дополнительная деталь попадает только в свободный блок',()=>{const c=fixture([row({part:'Датчик парковки',formRow:'__additional__',text:'Сломан',replace:true})]);assert.ok(tableRows(c,template,fixed).every(r=>!Object.keys(r).length));const rows=tableRows(c,template,extra);assert.equal(rows[0].part,'Датчик парковки');assert.equal(rows[0].damage,'Сломан');assert.equal(rows[0].selected,true);});
+test('Альфа: четыре дополнительные детали не обрезаются молча',()=>{const c=fixture([0,1,2,3].map(i=>row({id:String(i),formRow:'__additional__',part:'Датчик '+i})));assert.throws(()=>tableRows(c,template,extra),/3 строк/);});
+test('Альфа: старый свободный текст требует явного выбора строки, не угадывается',()=>{const c=fixture([row({part:'',formRow:undefined,text:'Фара правая треснула'})]);assert.throws(()=>tableRows(c,template,fixed),/выберите деталь/);});
+test('Альфа: прежняя структурированная запись читается без нового выбора',()=>{const c=fixture([row({formRow:undefined,text:undefined,damage:'Трещина'})]);assert.equal(tableRows(c,template,fixed)[1].damage,'Трещина');});
+test('Альфа: дублирование одной строки требует объединения сведений',()=>{const c=fixture([row(),row({id:'2',text:'Вмятина'})]);assert.throws(()=>tableRows(c,template,fixed),/Дублируется/);});
+test('Альфа: пустое название дополнительной детали отклоняется',()=>{assert.throws(()=>tableRows(fixture([row({formRow:'__additional__',part:''})]),template,extra),/название дополнительной/);});
+test('Альфа: сторона включена в описание справа',()=>{assert.equal(tableRows(fixture([row({side:'Левая'})]),template,fixed)[1].damage,'Левая; Трещина стекла');});
+test('Альфа: файл обращения сохраняет выбранную строку, работы и описание',()=>{const c=fixture([row()]);const restored=importCase(exportCase(c),cfg);assert.deepEqual(restored.damages,c.damages);assert.equal(tableRows(restored,template,fixed)[1].damage,'Трещина стекла');});
+test('Альфа: общий текст заявления содержит деталь и повреждение',()=>{const c=fixture([row()]);assert.equal(resolveValue(c,'event.damageDescription'),fixed.rowLabels![1]+'; Трещина стекла');assert.equal(damageSummary(c.damages[0]),resolveValue(c,'event.damageDescription'));});
