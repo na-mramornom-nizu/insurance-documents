@@ -22,7 +22,7 @@
       {
         "id": "ren-statement-p0-f1",
         "dataKey": "extra.ren-statement.p0f1",
-        "label": "мобильный телефон:",
+        "label": "Получать уведомления по мобильному телефону",
         "page": 0,
         "x": 43.64,
         "y": 128.22,
@@ -34,7 +34,7 @@
       {
         "id": "ren-statement-p0-f4",
         "dataKey": "extra.ren-statement.p0f4",
-        "label": "почтовый индекс и адрес:",
+        "label": "Получать уведомления обычной почтой по указанному адресу",
         "page": 0,
         "x": 43.67,
         "y": 162.28,
@@ -517,9 +517,9 @@
         "label": "Электронная почта заявителя",
         "page": 0,
         "x": 153,
-        "y": 156,
+        "y": 145,
         "width": 414,
-        "height": 17,
+        "height": 11,
         "type": "text",
         "fontSize": 8
       },
@@ -528,10 +528,10 @@
         "dataKey": "applicant.address",
         "label": "Адрес заявителя",
         "page": 0,
-        "x": 135,
-        "y": 140,
-        "width": 432,
-        "height": 15,
+        "x": 153,
+        "y": 163,
+        "width": 414,
+        "height": 11,
         "type": "text",
         "fontSize": 8
       },
@@ -594,6 +594,17 @@
         "height": 12,
         "type": "text",
         "fontSize": 7
+      },
+      {
+        "id": "ren-statement-notifyEmail",
+        "label": "Получать уведомления по электронной почте",
+        "page": 0,
+        "x": 45.35,
+        "y": 146.9,
+        "width": 8.5,
+        "height": 8.5,
+        "type": "check",
+        "dataKey": "extra.ren-statement.notifyEmail"
       }
     ]
   },
@@ -4696,27 +4707,31 @@
       },
       {
         "id": "alfa-statement-p0-f14",
-        "dataKey": "extra.alfa-statement.p0f14",
-        "label": "Находилось ли ТС в движении во время происшествия?",
+        "dataKey": "event.moving",
+        "label": "Автомобиль был в движении — нет",
         "page": 0,
         "x": 282.73,
         "y": 451.73,
         "width": 14.68,
         "height": 16.01,
         "type": "check",
-        "fontSize": 8
+        "fontSize": 8,
+        "legacyDataKey": "extra.alfa-statement.p0f14",
+        "equals": "Нет"
       },
       {
         "id": "alfa-statement-p0-f15",
-        "dataKey": "extra.alfa-statement.p0f15",
-        "label": "Да. ФИО водителя:",
+        "dataKey": "event.moving",
+        "label": "Автомобиль был в движении — да",
         "page": 0,
         "x": 34.41,
         "y": 470.19,
         "width": 14.68,
         "height": 16.01,
         "type": "check",
-        "fontSize": 8
+        "fontSize": 8,
+        "legacyDataKey": "extra.alfa-statement.p0f15",
+        "equals": "Да"
       },
       {
         "id": "alfa-statement-p0-f16",
@@ -4732,27 +4747,31 @@
       },
       {
         "id": "alfa-statement-p0-f17",
-        "dataKey": "extra.alfa-statement.p0f17",
-        "label": "Может ли ТС передвигаться своим ходом?",
+        "dataKey": "vehicle.driveable",
+        "label": "Автомобиль может передвигаться своим ходом — да",
         "page": 0,
         "x": 226.82,
         "y": 488.51,
         "width": 14.68,
         "height": 16.01,
         "type": "check",
-        "fontSize": 8
+        "fontSize": 8,
+        "legacyDataKey": "extra.alfa-statement.p0f17",
+        "equals": "Да"
       },
       {
         "id": "alfa-statement-p0-f18",
-        "dataKey": "extra.alfa-statement.p0f18",
-        "label": "Нет. Адрес для осмотра ТС:",
+        "dataKey": "vehicle.driveable",
+        "label": "Автомобиль может передвигаться своим ходом — нет",
         "page": 0,
         "x": 34.9,
         "y": 505.49,
         "width": 14.68,
         "height": 16.01,
         "type": "check",
-        "fontSize": 8
+        "fontSize": 8,
+        "legacyDataKey": "extra.alfa-statement.p0f18",
+        "equals": "Нет"
       },
       {
         "id": "alfa-statement-p0-f19",
@@ -4769,7 +4788,7 @@
       {
         "id": "alfa-statement-p0-f20",
         "dataKey": "extra.alfa-statement.p0f20",
-        "label": "Было ли заявлено о происшествии?",
+        "label": "О происшествии не заявлено",
         "page": 0,
         "x": 199.36,
         "y": 524.31,
@@ -4781,7 +4800,7 @@
       {
         "id": "alfa-statement-p0-f21",
         "dataKey": "extra.alfa-statement.p0f21",
-        "label": "Оформлен Европротокол",
+        "label": "Оформлен европротокол",
         "page": 0,
         "x": 235.65,
         "y": 522.84,
@@ -4793,7 +4812,7 @@
       {
         "id": "alfa-statement-p0-f22",
         "dataKey": "extra.alfa-statement.p0f22",
-        "label": "В ГИБДД",
+        "label": "О происшествии заявлено в ГИБДД",
         "page": 0,
         "x": 352.67,
         "y": 523.15,
@@ -4805,7 +4824,7 @@
       {
         "id": "alfa-statement-p0-f23",
         "dataKey": "extra.alfa-statement.p0f23",
-        "label": "В ОВД",
+        "label": "О происшествии заявлено в ОВД",
         "page": 0,
         "x": 407.9,
         "y": 524.44,
@@ -4816,15 +4835,17 @@
       },
       {
         "id": "alfa-statement-p0-f24",
-        "dataKey": "extra.alfa-statement.p0f24",
-        "label": "Нет",
+        "dataKey": "event.evidence",
+        "label": "Нет фото или видеозаписей с места события",
         "page": 0,
         "x": 376.33,
         "y": 542.89,
         "width": 14.68,
         "height": 16.01,
         "type": "check",
-        "fontSize": 8
+        "fontSize": 8,
+        "legacyDataKey": "extra.alfa-statement.p0f24",
+        "equals": "Нет"
       },
       {
         "id": "alfa-statement-p0-f25",
@@ -5883,27 +5904,31 @@
       },
       {
         "id": "reso-statement-p0-f7",
-        "dataKey": "extra.reso-statement.p0f7",
-        "label": "Нет",
+        "dataKey": "event.reportedToAuthorities",
+        "label": "О происшествии заявлено в компетентные органы — да",
         "page": 0,
         "x": 434.83,
         "y": 130.19,
         "width": 18.0,
         "height": 18.0,
         "type": "check",
-        "fontSize": 8
+        "fontSize": 8,
+        "legacyDataKey": "extra.reso-statement.p0f7",
+        "equals": "Да"
       },
       {
         "id": "reso-statement-p0-f8",
-        "dataKey": "extra.reso-statement.p0f8",
-        "label": "Нет",
+        "dataKey": "event.reportedToAuthorities",
+        "label": "О происшествии заявлено в компетентные органы — нет",
         "page": 0,
         "x": 473.38,
         "y": 129.13,
         "width": 18.0,
         "height": 18.0,
         "type": "check",
-        "fontSize": 8
+        "fontSize": 8,
+        "legacyDataKey": "extra.reso-statement.p0f8",
+        "equals": "Нет"
       },
       {
         "id": "reso-statement-p0-f9",
@@ -5920,15 +5945,17 @@
       },
       {
         "id": "reso-statement-p0-f10",
-        "dataKey": "extra.reso-statement.p0f10",
-        "label": "бумажное",
+        "dataKey": "extra.reso-statement.noticeType",
+        "label": "Извещение о ДТП — бумажное",
         "page": 0,
         "x": 160.76,
         "y": 172.49,
         "width": 18.0,
         "height": 18.0,
         "type": "check",
-        "fontSize": 8
+        "fontSize": 8,
+        "legacyDataKey": "extra.reso-statement.p0f10",
+        "equals": "Бумажное"
       },
       {
         "id": "reso-statement-p0-f11",
@@ -5945,27 +5972,31 @@
       },
       {
         "id": "reso-statement-p0-f12",
-        "dataKey": "extra.reso-statement.p0f12",
-        "label": "электронное (ID 1  – )",
+        "dataKey": "extra.reso-statement.noticeType",
+        "label": "Извещение о ДТП — электронное",
         "page": 0,
         "x": 258.93,
         "y": 172.49,
         "width": 18.0,
         "height": 18.0,
         "type": "check",
-        "fontSize": 8
+        "fontSize": 8,
+        "legacyDataKey": "extra.reso-statement.p0f12",
+        "equals": "Электронное"
       },
       {
         "id": "reso-statement-p0-f13",
-        "dataKey": "extra.reso-statement.p0f13",
-        "label": "не оформлялось",
+        "dataKey": "extra.reso-statement.noticeType",
+        "label": "Извещение о ДТП не оформлялось",
         "page": 0,
         "x": 463.5,
         "y": 176.01,
         "width": 18.0,
         "height": 18.0,
         "type": "check",
-        "fontSize": 8
+        "fontSize": 8,
+        "legacyDataKey": "extra.reso-statement.p0f13",
+        "equals": "Не оформлялось"
       },
       {
         "id": "reso-statement-p0-f14",
@@ -5981,27 +6012,31 @@
       },
       {
         "id": "reso-statement-p0-f15",
-        "dataKey": "extra.reso-statement.p0f15",
-        "label": "Нет",
+        "dataKey": "event.evidence",
+        "label": "Есть фото/видео с места происшествия, готов предоставить — да",
         "page": 0,
         "x": 481.49,
         "y": 205.74,
         "width": 18.0,
         "height": 18.0,
         "type": "check",
-        "fontSize": 8
+        "fontSize": 8,
+        "legacyDataKey": "extra.reso-statement.p0f15",
+        "equals": "Да"
       },
       {
         "id": "reso-statement-p0-f16",
-        "dataKey": "extra.reso-statement.p0f16",
-        "label": "Нет",
+        "dataKey": "event.evidence",
+        "label": "Есть фото/видео с места происшествия, готов предоставить — нет",
         "page": 0,
         "x": 522.56,
         "y": 206.13,
         "width": 18.0,
         "height": 18.0,
         "type": "check",
-        "fontSize": 8
+        "fontSize": 8,
+        "legacyDataKey": "extra.reso-statement.p0f16",
+        "equals": "Нет"
       },
       {
         "id": "reso-statement-p0-f17",
@@ -6017,15 +6052,17 @@
       },
       {
         "id": "reso-statement-p0-f24",
-        "dataKey": "extra.reso-statement.p0f24",
-        "label": "Нет",
+        "dataKey": "extra.reso-statement.sbpConsent",
+        "label": "Согласие на выплату через СБП по номеру телефона — нет",
         "page": 0,
         "x": 400.13,
         "y": 659.85,
         "width": 18.0,
         "height": 18.0,
         "type": "check",
-        "fontSize": 8
+        "fontSize": 8,
+        "legacyDataKey": "extra.reso-statement.p0f24",
+        "equals": "Нет"
       },
       {
         "id": "reso-statement-p0-f25",
@@ -6409,27 +6446,31 @@
       },
       {
         "id": "reso-statement-alt-p0-f13",
-        "dataKey": "extra.reso-statement-alt.p0f13",
-        "label": "Да",
+        "dataKey": "event.reportedToAuthorities",
+        "label": "О происшествии заявлено в компетентные органы — нет",
         "page": 0,
         "x": 512.25,
         "y": 307.55,
         "width": 18.0,
         "height": 18.0,
         "type": "check",
-        "fontSize": 8
+        "fontSize": 8,
+        "legacyDataKey": "extra.reso-statement-alt.p0f13",
+        "equals": "Нет"
       },
       {
         "id": "reso-statement-alt-p0-f14",
-        "dataKey": "extra.reso-statement-alt.p0f14",
-        "label": "Да",
+        "dataKey": "event.reportedToAuthorities",
+        "label": "О происшествии заявлено в компетентные органы — да",
         "page": 0,
         "x": 545.72,
         "y": 304.53,
         "width": 18.0,
         "height": 18.0,
         "type": "check",
-        "fontSize": 8
+        "fontSize": 8,
+        "legacyDataKey": "extra.reso-statement-alt.p0f14",
+        "equals": "Да"
       },
       {
         "id": "reso-statement-alt-p0-f15",
@@ -6481,27 +6522,31 @@
       },
       {
         "id": "reso-statement-alt-p0-f20",
-        "dataKey": "extra.reso-statement-alt.p0f20",
-        "label": "Нет",
+        "dataKey": "extra.reso-statement-alt.medicalExam",
+        "label": "Медицинское освидетельствование после ДТП проводилось — нет",
         "page": 0,
         "x": 56.71,
         "y": 687.05,
         "width": 18.0,
         "height": 18.0,
         "type": "check",
-        "fontSize": 8
+        "fontSize": 8,
+        "legacyDataKey": "extra.reso-statement-alt.p0f20",
+        "equals": "Нет"
       },
       {
         "id": "reso-statement-alt-p0-f21",
-        "dataKey": "extra.reso-statement-alt.p0f21",
-        "label": "Да",
+        "dataKey": "extra.reso-statement-alt.medicalExam",
+        "label": "Медицинское освидетельствование после ДТП проводилось — да",
         "page": 0,
         "x": 107.26,
         "y": 689.53,
         "width": 18.0,
         "height": 18.0,
         "type": "check",
-        "fontSize": 8
+        "fontSize": 8,
+        "legacyDataKey": "extra.reso-statement-alt.p0f21",
+        "equals": "Да"
       },
       {
         "id": "reso-statement-alt-0-36-500-text",
@@ -7894,7 +7939,7 @@
       {
         "id": "reso-notice-0-220-224-check",
         "dataKey": "extra.reso-notice.circumstance0_1",
-        "label": "Участник А — обстоятельство ДТП № 1",
+        "label": "Участник А: Автомобиль стоял на стоянке, парковке, обочине",
         "page": 0,
         "x": 220,
         "y": 224,
@@ -7906,7 +7951,7 @@
       {
         "id": "reso-notice-0-220-241-check",
         "dataKey": "extra.reso-notice.circumstance0_2",
-        "label": "Участник А — обстоятельство ДТП № 2",
+        "label": "Участник А: Водитель отсутствовал на месте ДТП",
         "page": 0,
         "x": 220,
         "y": 241,
@@ -7918,7 +7963,7 @@
       {
         "id": "reso-notice-0-220-253-check",
         "dataKey": "extra.reso-notice.circumstance0_3",
-        "label": "Участник А — обстоятельство ДТП № 3",
+        "label": "Участник А: Двигался на стоянке",
         "page": 0,
         "x": 220,
         "y": 253,
@@ -7930,7 +7975,7 @@
       {
         "id": "reso-notice-0-220-265-check",
         "dataKey": "extra.reso-notice.circumstance0_4",
-        "label": "Участник А — обстоятельство ДТП № 4",
+        "label": "Участник А: Выезжал со стоянки, парковки, обочины, двора или второстепенной дороги",
         "page": 0,
         "x": 220,
         "y": 265,
@@ -7942,7 +7987,7 @@
       {
         "id": "reso-notice-0-220-281-check",
         "dataKey": "extra.reso-notice.circumstance0_5",
-        "label": "Участник А — обстоятельство ДТП № 5",
+        "label": "Участник А: Заезжал на стоянку, парковку, во двор или на второстепенную дорогу",
         "page": 0,
         "x": 220,
         "y": 281,
@@ -7954,7 +7999,7 @@
       {
         "id": "reso-notice-0-220-299-check",
         "dataKey": "extra.reso-notice.circumstance0_6",
-        "label": "Участник А — обстоятельство ДТП № 6",
+        "label": "Участник А: Двигался прямо, не маневрировал",
         "page": 0,
         "x": 220,
         "y": 299,
@@ -7966,7 +8011,7 @@
       {
         "id": "reso-notice-0-220-310-check",
         "dataKey": "extra.reso-notice.circumstance0_7",
-        "label": "Участник А — обстоятельство ДТП № 7",
+        "label": "Участник А: Заезжал на перекрёсток",
         "page": 0,
         "x": 220,
         "y": 310,
@@ -7978,7 +8023,7 @@
       {
         "id": "reso-notice-0-220-321-check",
         "dataKey": "extra.reso-notice.circumstance0_8",
-        "label": "Участник А — обстоятельство ДТП № 8",
+        "label": "Участник А: Заезжал на перекрёсток с круговым движением",
         "page": 0,
         "x": 220,
         "y": 321,
@@ -7990,7 +8035,7 @@
       {
         "id": "reso-notice-0-220-338-check",
         "dataKey": "extra.reso-notice.circumstance0_9",
-        "label": "Участник А — обстоятельство ДТП № 9",
+        "label": "Участник А: Двигался на перекрёстке с круговым движением",
         "page": 0,
         "x": 220,
         "y": 338,
@@ -8002,7 +8047,7 @@
       {
         "id": "reso-notice-0-220-355-check",
         "dataKey": "extra.reso-notice.circumstance0_10",
-        "label": "Участник А — обстоятельство ДТП № 10",
+        "label": "Участник А: Столкнулся с ТС, двигавшимся в том же направлении по той же полосе",
         "page": 0,
         "x": 220,
         "y": 355,
@@ -8014,7 +8059,7 @@
       {
         "id": "reso-notice-0-220-380-check",
         "dataKey": "extra.reso-notice.circumstance0_11",
-        "label": "Участник А — обстоятельство ДТП № 11",
+        "label": "Участник А: Столкнулся с ТС, двигавшимся в том же направлении по другой полосе",
         "page": 0,
         "x": 220,
         "y": 380,
@@ -8026,7 +8071,7 @@
       {
         "id": "reso-notice-0-220-405-check",
         "dataKey": "extra.reso-notice.circumstance0_12",
-        "label": "Участник А — обстоятельство ДТП № 12",
+        "label": "Участник А: Менял полосу, перестраивался",
         "page": 0,
         "x": 220,
         "y": 405,
@@ -8038,7 +8083,7 @@
       {
         "id": "reso-notice-0-220-423-check",
         "dataKey": "extra.reso-notice.circumstance0_13",
-        "label": "Участник А — обстоятельство ДТП № 13",
+        "label": "Участник А: Обгонял",
         "page": 0,
         "x": 220,
         "y": 423,
@@ -8050,7 +8095,7 @@
       {
         "id": "reso-notice-0-220-434-check",
         "dataKey": "extra.reso-notice.circumstance0_14",
-        "label": "Участник А — обстоятельство ДТП № 14",
+        "label": "Участник А: Поворачивал направо",
         "page": 0,
         "x": 220,
         "y": 434,
@@ -8062,7 +8107,7 @@
       {
         "id": "reso-notice-0-220-445-check",
         "dataKey": "extra.reso-notice.circumstance0_15",
-        "label": "Участник А — обстоятельство ДТП № 15",
+        "label": "Участник А: Поворачивал налево",
         "page": 0,
         "x": 220,
         "y": 445,
@@ -8074,7 +8119,7 @@
       {
         "id": "reso-notice-0-220-456-check",
         "dataKey": "extra.reso-notice.circumstance0_16",
-        "label": "Участник А — обстоятельство ДТП № 16",
+        "label": "Участник А: Совершал разворот",
         "page": 0,
         "x": 220,
         "y": 456,
@@ -8086,7 +8131,7 @@
       {
         "id": "reso-notice-0-220-468-check",
         "dataKey": "extra.reso-notice.circumstance0_17",
-        "label": "Участник А — обстоятельство ДТП № 17",
+        "label": "Участник А: Двигался задним ходом",
         "page": 0,
         "x": 220,
         "y": 468,
@@ -8098,7 +8143,7 @@
       {
         "id": "reso-notice-0-220-480-check",
         "dataKey": "extra.reso-notice.circumstance0_18",
-        "label": "Участник А — обстоятельство ДТП № 18",
+        "label": "Участник А: Выехал на полосу встречного движения",
         "page": 0,
         "x": 220,
         "y": 480,
@@ -8110,7 +8155,7 @@
       {
         "id": "reso-notice-0-220-504-check",
         "dataKey": "extra.reso-notice.circumstance0_19",
-        "label": "Участник А — обстоятельство ДТП № 19",
+        "label": "Участник А: Второе ТС находилось справа",
         "page": 0,
         "x": 220,
         "y": 504,
@@ -8122,7 +8167,7 @@
       {
         "id": "reso-notice-0-220-517-check",
         "dataKey": "extra.reso-notice.circumstance0_20",
-        "label": "Участник А — обстоятельство ДТП № 20",
+        "label": "Участник А: Не выполнил требование знака приоритета",
         "page": 0,
         "x": 220,
         "y": 517,
@@ -8134,7 +8179,7 @@
       {
         "id": "reso-notice-0-220-534-check",
         "dataKey": "extra.reso-notice.circumstance0_21",
-        "label": "Участник А — обстоятельство ДТП № 21",
+        "label": "Участник А: Совершил наезд на неподвижное ТС, препятствие или иное неподвижное препятствие",
         "page": 0,
         "x": 220,
         "y": 534,
@@ -8146,7 +8191,7 @@
       {
         "id": "reso-notice-0-220-552-check",
         "dataKey": "extra.reso-notice.circumstance0_22",
-        "label": "Участник А — обстоятельство ДТП № 22",
+        "label": "Участник А: Остановился у запрещающего сигнала светофора",
         "page": 0,
         "x": 220,
         "y": 552,
@@ -8158,7 +8203,7 @@
       {
         "id": "reso-notice-0-220-568-check",
         "dataKey": "extra.reso-notice.circumstance0_23",
-        "label": "Участник А — обстоятельство ДТП № 23",
+        "label": "Участник А: Иное",
         "page": 0,
         "x": 220,
         "y": 568,
@@ -8398,7 +8443,7 @@
       {
         "id": "reso-notice-0-379-224-check",
         "dataKey": "extra.reso-notice.circumstance359_1",
-        "label": "Участник Б — обстоятельство ДТП № 1",
+        "label": "Участник Б: Автомобиль стоял на стоянке, парковке, обочине",
         "page": 0,
         "x": 379,
         "y": 224,
@@ -8410,7 +8455,7 @@
       {
         "id": "reso-notice-0-379-241-check",
         "dataKey": "extra.reso-notice.circumstance359_2",
-        "label": "Участник Б — обстоятельство ДТП № 2",
+        "label": "Участник Б: Водитель отсутствовал на месте ДТП",
         "page": 0,
         "x": 379,
         "y": 241,
@@ -8422,7 +8467,7 @@
       {
         "id": "reso-notice-0-379-253-check",
         "dataKey": "extra.reso-notice.circumstance359_3",
-        "label": "Участник Б — обстоятельство ДТП № 3",
+        "label": "Участник Б: Двигался на стоянке",
         "page": 0,
         "x": 379,
         "y": 253,
@@ -8434,7 +8479,7 @@
       {
         "id": "reso-notice-0-379-265-check",
         "dataKey": "extra.reso-notice.circumstance359_4",
-        "label": "Участник Б — обстоятельство ДТП № 4",
+        "label": "Участник Б: Выезжал со стоянки, парковки, обочины, двора или второстепенной дороги",
         "page": 0,
         "x": 379,
         "y": 265,
@@ -8446,7 +8491,7 @@
       {
         "id": "reso-notice-0-379-281-check",
         "dataKey": "extra.reso-notice.circumstance359_5",
-        "label": "Участник Б — обстоятельство ДТП № 5",
+        "label": "Участник Б: Заезжал на стоянку, парковку, во двор или на второстепенную дорогу",
         "page": 0,
         "x": 379,
         "y": 281,
@@ -8458,7 +8503,7 @@
       {
         "id": "reso-notice-0-379-299-check",
         "dataKey": "extra.reso-notice.circumstance359_6",
-        "label": "Участник Б — обстоятельство ДТП № 6",
+        "label": "Участник Б: Двигался прямо, не маневрировал",
         "page": 0,
         "x": 379,
         "y": 299,
@@ -8470,7 +8515,7 @@
       {
         "id": "reso-notice-0-379-310-check",
         "dataKey": "extra.reso-notice.circumstance359_7",
-        "label": "Участник Б — обстоятельство ДТП № 7",
+        "label": "Участник Б: Заезжал на перекрёсток",
         "page": 0,
         "x": 379,
         "y": 310,
@@ -8482,7 +8527,7 @@
       {
         "id": "reso-notice-0-379-321-check",
         "dataKey": "extra.reso-notice.circumstance359_8",
-        "label": "Участник Б — обстоятельство ДТП № 8",
+        "label": "Участник Б: Заезжал на перекрёсток с круговым движением",
         "page": 0,
         "x": 379,
         "y": 321,
@@ -8494,7 +8539,7 @@
       {
         "id": "reso-notice-0-379-338-check",
         "dataKey": "extra.reso-notice.circumstance359_9",
-        "label": "Участник Б — обстоятельство ДТП № 9",
+        "label": "Участник Б: Двигался на перекрёстке с круговым движением",
         "page": 0,
         "x": 379,
         "y": 338,
@@ -8506,7 +8551,7 @@
       {
         "id": "reso-notice-0-379-355-check",
         "dataKey": "extra.reso-notice.circumstance359_10",
-        "label": "Участник Б — обстоятельство ДТП № 10",
+        "label": "Участник Б: Столкнулся с ТС, двигавшимся в том же направлении по той же полосе",
         "page": 0,
         "x": 379,
         "y": 355,
@@ -8518,7 +8563,7 @@
       {
         "id": "reso-notice-0-379-380-check",
         "dataKey": "extra.reso-notice.circumstance359_11",
-        "label": "Участник Б — обстоятельство ДТП № 11",
+        "label": "Участник Б: Столкнулся с ТС, двигавшимся в том же направлении по другой полосе",
         "page": 0,
         "x": 379,
         "y": 380,
@@ -8530,7 +8575,7 @@
       {
         "id": "reso-notice-0-379-405-check",
         "dataKey": "extra.reso-notice.circumstance359_12",
-        "label": "Участник Б — обстоятельство ДТП № 12",
+        "label": "Участник Б: Менял полосу, перестраивался",
         "page": 0,
         "x": 379,
         "y": 405,
@@ -8542,7 +8587,7 @@
       {
         "id": "reso-notice-0-379-423-check",
         "dataKey": "extra.reso-notice.circumstance359_13",
-        "label": "Участник Б — обстоятельство ДТП № 13",
+        "label": "Участник Б: Обгонял",
         "page": 0,
         "x": 379,
         "y": 423,
@@ -8554,7 +8599,7 @@
       {
         "id": "reso-notice-0-379-434-check",
         "dataKey": "extra.reso-notice.circumstance359_14",
-        "label": "Участник Б — обстоятельство ДТП № 14",
+        "label": "Участник Б: Поворачивал направо",
         "page": 0,
         "x": 379,
         "y": 434,
@@ -8566,7 +8611,7 @@
       {
         "id": "reso-notice-0-379-445-check",
         "dataKey": "extra.reso-notice.circumstance359_15",
-        "label": "Участник Б — обстоятельство ДТП № 15",
+        "label": "Участник Б: Поворачивал налево",
         "page": 0,
         "x": 379,
         "y": 445,
@@ -8578,7 +8623,7 @@
       {
         "id": "reso-notice-0-379-456-check",
         "dataKey": "extra.reso-notice.circumstance359_16",
-        "label": "Участник Б — обстоятельство ДТП № 16",
+        "label": "Участник Б: Совершал разворот",
         "page": 0,
         "x": 379,
         "y": 456,
@@ -8590,7 +8635,7 @@
       {
         "id": "reso-notice-0-379-468-check",
         "dataKey": "extra.reso-notice.circumstance359_17",
-        "label": "Участник Б — обстоятельство ДТП № 17",
+        "label": "Участник Б: Двигался задним ходом",
         "page": 0,
         "x": 379,
         "y": 468,
@@ -8602,7 +8647,7 @@
       {
         "id": "reso-notice-0-379-480-check",
         "dataKey": "extra.reso-notice.circumstance359_18",
-        "label": "Участник Б — обстоятельство ДТП № 18",
+        "label": "Участник Б: Выехал на полосу встречного движения",
         "page": 0,
         "x": 379,
         "y": 480,
@@ -8614,7 +8659,7 @@
       {
         "id": "reso-notice-0-379-504-check",
         "dataKey": "extra.reso-notice.circumstance359_19",
-        "label": "Участник Б — обстоятельство ДТП № 19",
+        "label": "Участник Б: Второе ТС находилось справа",
         "page": 0,
         "x": 379,
         "y": 504,
@@ -8626,7 +8671,7 @@
       {
         "id": "reso-notice-0-379-517-check",
         "dataKey": "extra.reso-notice.circumstance359_20",
-        "label": "Участник Б — обстоятельство ДТП № 20",
+        "label": "Участник Б: Не выполнил требование знака приоритета",
         "page": 0,
         "x": 379,
         "y": 517,
@@ -8638,7 +8683,7 @@
       {
         "id": "reso-notice-0-379-534-check",
         "dataKey": "extra.reso-notice.circumstance359_21",
-        "label": "Участник Б — обстоятельство ДТП № 21",
+        "label": "Участник Б: Совершил наезд на неподвижное ТС, препятствие или иное неподвижное препятствие",
         "page": 0,
         "x": 379,
         "y": 534,
@@ -8650,7 +8695,7 @@
       {
         "id": "reso-notice-0-379-552-check",
         "dataKey": "extra.reso-notice.circumstance359_22",
-        "label": "Участник Б — обстоятельство ДТП № 22",
+        "label": "Участник Б: Остановился у запрещающего сигнала светофора",
         "page": 0,
         "x": 379,
         "y": 552,
@@ -8662,7 +8707,7 @@
       {
         "id": "reso-notice-0-379-568-check",
         "dataKey": "extra.reso-notice.circumstance359_23",
-        "label": "Участник Б — обстоятельство ДТП № 23",
+        "label": "Участник Б: Иное",
         "page": 0,
         "x": 379,
         "y": 568,
@@ -8919,7 +8964,7 @@
       {
         "id": "reso-station-p0-f4",
         "dataKey": "extra.reso-station.p0f4",
-        "label": "3MIBJIEHHE",
+        "label": "Содержание заявления",
         "page": 0,
         "x": 41.11,
         "y": 379.45,
@@ -8931,7 +8976,7 @@
       {
         "id": "reso-station-p0-f5",
         "dataKey": "extra.reso-station.p0f5",
-        "label": "3MIBJIEHHE",
+        "label": "Продолжение заявления",
         "page": 0,
         "x": 39.92,
         "y": 403.56,
@@ -9274,27 +9319,31 @@
       },
       {
         "id": "rgs-statement-p0-f20",
-        "dataKey": "extra.rgs-statement.p0f20",
-        "label": "Страхователя",
+        "dataKey": "extra.rgs-statement.driverRole",
+        "label": "Автомобилем управлял страхователь",
         "page": 0,
         "x": 62.49,
         "y": 287.2,
         "width": 18.0,
         "height": 18.0,
         "type": "check",
-        "fontSize": 8
+        "fontSize": 8,
+        "legacyDataKey": "extra.rgs-statement.p0f20",
+        "equals": "Страхователь"
       },
       {
         "id": "rgs-statement-p0-f21",
-        "dataKey": "extra.rgs-statement.p0f21",
-        "label": "иного лица, допущенного к управлению:",
+        "dataKey": "extra.rgs-statement.driverRole",
+        "label": "Автомобилем управляло иное допущенное лицо",
         "page": 0,
         "x": 135.62,
         "y": 289.19,
         "width": 18.0,
         "height": 18.0,
         "type": "check",
-        "fontSize": 8
+        "fontSize": 8,
+        "legacyDataKey": "extra.rgs-statement.p0f21",
+        "equals": "Иное лицо"
       },
       {
         "id": "rgs-statement-p0-f22",
@@ -9348,7 +9397,7 @@
       {
         "id": "rgs-statement-p0-f30",
         "dataKey": "extra.rgs-statement.p0f30",
-        "label": "Прошу рассмотреть  заявленное событие без представления документов из компетентных органов, подтверждающих факт наступления",
+        "label": "Рассмотреть событие без документов компетентных органов",
         "page": 0,
         "x": 61.16,
         "y": 690.08,
@@ -9412,7 +9461,7 @@
       {
         "id": "rgs-statement-p1-f0",
         "dataKey": "extra.rgs-statement.p1f0",
-        "label": "",
+        "label": "Обязательный документ: Доверенность от собственника на представление интересов / получение выплаты",
         "page": 1,
         "x": 444.76,
         "y": 147.59,
@@ -9424,7 +9473,7 @@
       {
         "id": "rgs-statement-p1-f1",
         "dataKey": "extra.rgs-statement.p1f1",
-        "label": "",
+        "label": "Документ предоставлен: Доверенность от собственника на представление интересов / получение выплаты",
         "page": 1,
         "x": 506.59,
         "y": 147.59,
@@ -9436,7 +9485,7 @@
       {
         "id": "rgs-statement-p1-f2",
         "dataKey": "extra.rgs-statement.p1f2",
-        "label": "",
+        "label": "Обязательный документ: Доверенность на управление ТС / путевой лист",
         "page": 1,
         "x": 444.76,
         "y": 167.53,
@@ -9448,7 +9497,7 @@
       {
         "id": "rgs-statement-p1-f3",
         "dataKey": "extra.rgs-statement.p1f3",
-        "label": "",
+        "label": "Документ предоставлен: Доверенность на управление ТС / путевой лист",
         "page": 1,
         "x": 507.25,
         "y": 165.54,
@@ -9460,7 +9509,7 @@
       {
         "id": "rgs-statement-p1-f4",
         "dataKey": "extra.rgs-statement.p1f4",
-        "label": "",
+        "label": "Обязательный документ: Справка №154 о ДТП",
         "page": 1,
         "x": 447.42,
         "y": 230.69,
@@ -9472,7 +9521,7 @@
       {
         "id": "rgs-statement-p1-f5",
         "dataKey": "extra.rgs-statement.p1f5",
-        "label": "",
+        "label": "Документ предоставлен: Справка №154 о ДТП",
         "page": 1,
         "x": 507.25,
         "y": 230.69,
@@ -9484,7 +9533,7 @@
       {
         "id": "rgs-statement-p1-f6",
         "dataKey": "extra.rgs-statement.p1f6",
-        "label": "",
+        "label": "Обязательный документ: Постановление по делу об административном правонарушении",
         "page": 1,
         "x": 446.76,
         "y": 255.29,
@@ -9496,7 +9545,7 @@
       {
         "id": "rgs-statement-p1-f7",
         "dataKey": "extra.rgs-statement.p1f7",
-        "label": "",
+        "label": "Документ предоставлен: Постановление по делу об административном правонарушении",
         "page": 1,
         "x": 507.92,
         "y": 255.29,
@@ -9508,7 +9557,7 @@
       {
         "id": "rgs-statement-p1-f8",
         "dataKey": "extra.rgs-statement.p1f8",
-        "label": "",
+        "label": "Обязательный документ: Справка территориального ОВД",
         "page": 1,
         "x": 444.76,
         "y": 293.18,
@@ -9520,7 +9569,7 @@
       {
         "id": "rgs-statement-p1-f9",
         "dataKey": "extra.rgs-statement.p1f9",
-        "label": "",
+        "label": "Документ предоставлен: Справка территориального ОВД",
         "page": 1,
         "x": 505.92,
         "y": 293.85,
@@ -10301,7 +10350,7 @@
       {
         "id": "rgs-obligation-p0-f16",
         "dataKey": "extra.rgs-obligation.p0f16",
-        "label": "была уплачена страховая премия в полном объеме единовременно.",
+        "label": "Страховая премия уплачена полностью единовременно",
         "page": 0,
         "x": 56.51,
         "y": 283.88,
@@ -10859,7 +10908,7 @@
       {
         "id": "sovcom-statement-p0-f45",
         "dataKey": "extra.sovcom-statement.consent45",
-        "label": "Отказ от заменённых деталей",
+        "label": "Отказаться от права собственности на повреждённые детали в пользу страховщика",
         "page": 0,
         "x": 34.4,
         "y": 633.63,
@@ -10871,7 +10920,7 @@
       {
         "id": "sovcom-statement-p0-f46",
         "dataKey": "extra.sovcom-statement.consent46",
-        "label": "Согласие на обработку персональных данных",
+        "label": "Получать уведомления о ходе урегулирования и направлении на ремонт по телефону и электронной почте",
         "page": 0,
         "x": 34.44,
         "y": 654.55,
@@ -10883,7 +10932,7 @@
       {
         "id": "sovcom-statement-p0-f47",
         "dataKey": "extra.sovcom-statement.consent47",
-        "label": "Согласие на отправку уведомлений",
+        "label": "Разрешить передачу персональных данных собственнику автомобиля",
         "page": 0,
         "x": 34.4,
         "y": 675.87,
@@ -10895,7 +10944,7 @@
       {
         "id": "sovcom-statement-p0-f48",
         "dataKey": "extra.sovcom-statement.consent48",
-        "label": "Согласие на предоставление данных",
+        "label": "Согласиться на опрос качества услуг и урегулирования убытка",
         "page": 0,
         "x": 34.22,
         "y": 687.69,
@@ -10907,7 +10956,7 @@
       {
         "id": "sovcom-statement-p0-f52",
         "dataKey": "extra.sovcom-statement.p0f52",
-        "label": "Лобовое стекло",
+        "label": "Возмещение без справок — лобовое стекло",
         "page": 0,
         "x": 190.73,
         "y": 528.97,
@@ -10919,7 +10968,7 @@
       {
         "id": "sovcom-statement-p0-f53",
         "dataKey": "extra.sovcom-statement.p0f53",
-        "label": "ДУ13, до 3% от страховой суммы",
+        "label": "Возмещение без справок — ДУ13, до 3% страховой суммы",
         "page": 0,
         "x": 269.53,
         "y": 528.85,
@@ -10931,7 +10980,7 @@
       {
         "id": "sovcom-statement-p0-f54",
         "dataKey": "extra.sovcom-statement.p0f54",
-        "label": "ДУ12 остекление, 1 кузовной элемент",
+        "label": "Возмещение без справок — ДУ12, остекление и один кузовной элемент",
         "page": 0,
         "x": 410.53,
         "y": 529.63,
@@ -12631,27 +12680,31 @@
       },
       {
         "id": "ingos-k-statement-p0-f14",
-        "dataKey": "extra.ingos-k-statement.p0f14",
-        "label": "Заявлено ли о случившемся в органы МВД? □  Да □  Нет",
+        "dataKey": "extra.ingos-k-statement.reportedPolice",
+        "label": "О происшествии заявлено в органы МВД — да",
         "page": 0,
         "x": 231.44,
         "y": 321.27,
         "width": 11.62,
         "height": 14.08,
         "type": "check",
-        "fontSize": 8
+        "fontSize": 8,
+        "legacyDataKey": "extra.ingos-k-statement.p0f14",
+        "equals": "Да"
       },
       {
         "id": "ingos-k-statement-p0-f15",
-        "dataKey": "extra.ingos-k-statement.p0f15",
-        "label": "Заявлено ли о случившемся в органы МВД? □  Да □  Нет",
+        "dataKey": "extra.ingos-k-statement.reportedPolice",
+        "label": "О происшествии заявлено в органы МВД — нет",
         "page": 0,
         "x": 259.09,
         "y": 322.26,
         "width": 10.64,
         "height": 12.11,
         "type": "check",
-        "fontSize": 8
+        "fontSize": 8,
+        "legacyDataKey": "extra.ingos-k-statement.p0f15",
+        "equals": "Нет"
       },
       {
         "id": "ingos-k-statement-p0-f16",
@@ -12667,27 +12720,31 @@
       },
       {
         "id": "ingos-k-statement-p0-f17",
-        "dataKey": "extra.ingos-k-statement.p0f17",
-        "label": "□ Да □  Нет",
+        "dataKey": "extra.ingos-k-statement.europrotocol",
+        "label": "Оформлен европротокол — да",
         "page": 0,
         "x": 234.14,
         "y": 358.05,
         "width": 11.62,
         "height": 14.08,
         "type": "check",
-        "fontSize": 8
+        "fontSize": 8,
+        "legacyDataKey": "extra.ingos-k-statement.p0f17",
+        "equals": "Да"
       },
       {
         "id": "ingos-k-statement-p0-f18",
-        "dataKey": "extra.ingos-k-statement.p0f18",
-        "label": "□ Да □  Нет",
+        "dataKey": "extra.ingos-k-statement.europrotocol",
+        "label": "Оформлен европротокол — нет",
         "page": 0,
         "x": 259.82,
         "y": 359.52,
         "width": 10.64,
         "height": 12.12,
         "type": "check",
-        "fontSize": 8
+        "fontSize": 8,
+        "legacyDataKey": "extra.ingos-k-statement.p0f18",
+        "equals": "Нет"
       },
       {
         "id": "ingos-k-statement-p0-f19",
@@ -12803,7 +12860,7 @@
       {
         "id": "ingos-k-statement-p0-f40",
         "dataKey": "extra.ingos-k-statement.p0f40",
-        "label": "□ Такси",
+        "label": "Гарантия мобильности — такси",
         "page": 0,
         "x": 431.76,
         "y": 700.34,
@@ -12815,7 +12872,7 @@
       {
         "id": "ingos-k-statement-p0-f41",
         "dataKey": "extra.ingos-k-statement.p0f41",
-        "label": "□ Каршеринг",
+        "label": "Гарантия мобильности — каршеринг",
         "page": 0,
         "x": 490.79,
         "y": 701.81,
@@ -13961,102 +14018,6 @@
         "sliceLength": 6
       },
       {
-        "id": "ingos-o-statement-p0-f7",
-        "dataKey": "applicant.postalCode",
-        "label": "Заявитель — индекс",
-        "page": 0,
-        "x": 148.33,
-        "y": 225.62,
-        "width": 49.44,
-        "height": 10.8,
-        "type": "text",
-        "fontSize": 7
-      },
-      {
-        "id": "ingos-o-statement-p0-f8",
-        "dataKey": "applicant.region",
-        "label": "Заявитель — страна / регион",
-        "page": 0,
-        "x": 207.01,
-        "y": 225.62,
-        "width": 196.44,
-        "height": 10.8,
-        "type": "text",
-        "fontSize": 7
-      },
-      {
-        "id": "ingos-o-statement-p0-f9",
-        "dataKey": "applicant.district",
-        "label": "Заявитель — район",
-        "page": 0,
-        "x": 412.93,
-        "y": 225.62,
-        "width": 147.48,
-        "height": 10.8,
-        "type": "text",
-        "fontSize": 7
-      },
-      {
-        "id": "ingos-o-statement-p0-f10",
-        "dataKey": "applicant.city",
-        "label": "Заявитель — город",
-        "page": 0,
-        "x": 33.95,
-        "y": 235.43,
-        "width": 88.64,
-        "height": 10.8,
-        "type": "text",
-        "fontSize": 7
-      },
-      {
-        "id": "ingos-o-statement-p0-f11",
-        "dataKey": "applicant.street",
-        "label": "Заявитель — улица",
-        "page": 0,
-        "x": 179.47,
-        "y": 235.43,
-        "width": 199.15,
-        "height": 10.8,
-        "type": "text",
-        "fontSize": 7
-      },
-      {
-        "id": "ingos-o-statement-p0-f12",
-        "dataKey": "applicant.house",
-        "label": "Заявитель — дом",
-        "page": 0,
-        "x": 398.9,
-        "y": 236.41,
-        "width": 36.96,
-        "height": 10.8,
-        "type": "text",
-        "fontSize": 7
-      },
-      {
-        "id": "ingos-o-statement-p0-f13",
-        "dataKey": "applicant.building",
-        "label": "Заявитель — корпус",
-        "page": 0,
-        "x": 443.42,
-        "y": 236.41,
-        "width": 38.04,
-        "height": 10.8,
-        "type": "text",
-        "fontSize": 7
-      },
-      {
-        "id": "ingos-o-statement-p0-f14",
-        "dataKey": "applicant.flat",
-        "label": "Заявитель — квартира",
-        "page": 0,
-        "x": 484.34,
-        "y": 236.41,
-        "width": 38.4,
-        "height": 10.8,
-        "type": "text",
-        "fontSize": 7
-      },
-      {
         "id": "ingos-o-statement-p0-f15",
         "dataKey": "applicant.phone",
         "label": "Телефон заявителя",
@@ -14076,18 +14037,6 @@
         "x": 90.79,
         "y": 288.4,
         "width": 471.17,
-        "height": 10.8,
-        "type": "text",
-        "fontSize": 7
-      },
-      {
-        "id": "ingos-o-statement-p0-f17",
-        "dataKey": "owner.flat",
-        "label": "Собственник — квартира",
-        "page": 0,
-        "x": 467.88,
-        "y": 360.01,
-        "width": 38.4,
         "height": 10.8,
         "type": "text",
         "fontSize": 7
@@ -14174,90 +14123,6 @@
         "fontSize": 7,
         "sliceStart": 4,
         "sliceLength": 6
-      },
-      {
-        "id": "ingos-o-statement-p0-f24",
-        "dataKey": "owner.postalCode",
-        "label": "Собственник — индекс",
-        "page": 0,
-        "x": 113.23,
-        "y": 349.22,
-        "width": 49.44,
-        "height": 10.8,
-        "type": "text",
-        "fontSize": 7
-      },
-      {
-        "id": "ingos-o-statement-p0-f25",
-        "dataKey": "owner.region",
-        "label": "Собственник — страна / регион",
-        "page": 0,
-        "x": 171.91,
-        "y": 349.22,
-        "width": 196.44,
-        "height": 10.8,
-        "type": "text",
-        "fontSize": 7
-      },
-      {
-        "id": "ingos-o-statement-p0-f26",
-        "dataKey": "owner.district",
-        "label": "Собственник — район",
-        "page": 0,
-        "x": 377.83,
-        "y": 349.22,
-        "width": 147.48,
-        "height": 10.8,
-        "type": "text",
-        "fontSize": 7
-      },
-      {
-        "id": "ingos-o-statement-p0-f27",
-        "dataKey": "owner.city",
-        "label": "Собственник — город",
-        "page": 0,
-        "x": 34.16,
-        "y": 359.03,
-        "width": 88.64,
-        "height": 10.8,
-        "type": "text",
-        "fontSize": 7
-      },
-      {
-        "id": "ingos-o-statement-p0-f28",
-        "dataKey": "owner.street",
-        "label": "Собственник — улица",
-        "page": 0,
-        "x": 155.15,
-        "y": 359.52,
-        "width": 199.15,
-        "height": 10.8,
-        "type": "text",
-        "fontSize": 7
-      },
-      {
-        "id": "ingos-o-statement-p0-f29",
-        "dataKey": "owner.house",
-        "label": "Собственник — дом",
-        "page": 0,
-        "x": 382.43,
-        "y": 360.01,
-        "width": 36.96,
-        "height": 10.8,
-        "type": "text",
-        "fontSize": 7
-      },
-      {
-        "id": "ingos-o-statement-p0-f30",
-        "dataKey": "owner.building",
-        "label": "Собственник — корпус",
-        "page": 0,
-        "x": 426.95,
-        "y": 360.01,
-        "width": 38.04,
-        "height": 10.8,
-        "type": "text",
-        "fontSize": 7
       },
       {
         "id": "ingos-o-statement-p0-f31",
@@ -14379,27 +14244,31 @@
       },
       {
         "id": "ingos-o-statement-p0-f40",
-        "dataKey": "extra.ingos-o-statement.p0f40",
-        "label": "/ нет",
+        "dataKey": "vehicle.driveable",
+        "label": "Автомобиль может передвигаться своим ходом — да",
         "page": 0,
         "x": 274.15,
         "y": 475.73,
         "width": 7.92,
         "height": 7.92,
         "type": "check",
-        "fontSize": 8
+        "fontSize": 8,
+        "legacyDataKey": "extra.ingos-o-statement.p0f40",
+        "equals": "Да"
       },
       {
         "id": "ingos-o-statement-p0-f41",
-        "dataKey": "extra.ingos-o-statement.p0f41",
-        "label": "/ нет",
+        "dataKey": "vehicle.driveable",
+        "label": "Автомобиль может передвигаться своим ходом — нет",
         "page": 0,
         "x": 307.48,
         "y": 475.73,
         "width": 7.92,
         "height": 7.92,
         "type": "check",
-        "fontSize": 8
+        "fontSize": 8,
+        "legacyDataKey": "extra.ingos-o-statement.p0f41",
+        "equals": "Нет"
       },
       {
         "id": "ingos-o-statement-p0-f42",
@@ -14662,15 +14531,17 @@
       },
       {
         "id": "ingos-o-statement-p1-f12",
-        "dataKey": "extra.ingos-o-statement.repair",
-        "label": "Организация и оплата ремонта",
+        "dataKey": "extra.ingos-o-statement.compensationMethod",
+        "label": "Организовать и оплатить ремонт на СТО из перечня страховщика",
         "page": 1,
         "x": 35.94,
         "y": 222.86,
         "width": 12.0,
         "height": 11.4,
         "type": "check",
-        "fontSize": 8
+        "fontSize": 8,
+        "legacyDataKey": "extra.ingos-o-statement.repair",
+        "equals": "Ремонт на предложенной СТО"
       },
       {
         "id": "ingos-o-statement-p2-f0",
@@ -14686,15 +14557,17 @@
       },
       {
         "id": "ingos-o-statement-p2-f1",
-        "dataKey": "extra.ingos-o-statement.resultsEmail",
-        "label": "Направить результаты на электронную почту",
+        "dataKey": "extra.ingos-o-statement.resultsDelivery",
+        "label": "Получить результаты осмотра / экспертизы по электронной почте",
         "page": 2,
         "x": 38.39,
         "y": 100.55,
         "width": 12.0,
         "height": 11.28,
         "type": "check",
-        "fontSize": 8
+        "fontSize": 8,
+        "legacyDataKey": "extra.ingos-o-statement.resultsEmail",
+        "equals": "Электронная почта"
       },
       {
         "id": "ingos-o-statement-p3-f0",
@@ -15106,6 +14979,102 @@
         "height": 12,
         "type": "text",
         "fontSize": 7
+      },
+      {
+        "id": "ingos-o-statement-repairOtherStation",
+        "label": "Оплатить ремонт на выбранной потерпевшим СТО",
+        "page": 1,
+        "x": 34.8,
+        "y": 326.69,
+        "width": 11.04,
+        "height": 11.04,
+        "type": "check",
+        "dataKey": "extra.ingos-o-statement.compensationMethod",
+        "equals": "Ремонт на выбранной СТО"
+      },
+      {
+        "id": "ingos-o-statement-postalTransfer",
+        "label": "Страховая выплата почтовым переводом",
+        "page": 1,
+        "x": 34.8,
+        "y": 504.09,
+        "width": 11.04,
+        "height": 11.04,
+        "type": "check",
+        "dataKey": "extra.ingos-o-statement.compensationMethod",
+        "equals": "Почтовый перевод"
+      },
+      {
+        "id": "ingos-o-statement-bankTransfer",
+        "label": "Страховая выплата на банковский счёт",
+        "page": 1,
+        "x": 162,
+        "y": 503.5,
+        "width": 12,
+        "height": 12,
+        "type": "check",
+        "dataKey": "extra.ingos-o-statement.compensationMethod",
+        "equals": "Банковский счёт"
+      },
+      {
+        "id": "ingos-o-statement-resultsCabinet",
+        "label": "Разместить результаты осмотра / экспертизы в личном кабинете",
+        "page": 2,
+        "x": 37,
+        "y": 142.2,
+        "width": 11,
+        "height": 12,
+        "type": "check",
+        "dataKey": "extra.ingos-o-statement.resultsDelivery",
+        "equals": "Личный кабинет"
+      },
+      {
+        "id": "ingos-o-statement-resultsOffice",
+        "label": "Предоставить результаты осмотра / экспертизы в офисе страховщика",
+        "page": 2,
+        "x": 37,
+        "y": 190.4,
+        "width": 11,
+        "height": 12,
+        "type": "check",
+        "dataKey": "extra.ingos-o-statement.resultsDelivery",
+        "equals": "Офис страховщика"
+      },
+      {
+        "id": "ingos-o-statement-resultsDeclined",
+        "label": "Отказываюсь от ознакомления с результатами осмотра / экспертизы",
+        "page": 2,
+        "x": 39,
+        "y": 292.9,
+        "width": 11,
+        "height": 12,
+        "type": "check",
+        "dataKey": "extra.ingos-o-statement.resultsDelivery",
+        "equals": "Отказ от ознакомления"
+      },
+      {
+        "id": "ingos-o-statement-applicant-full-address",
+        "dataKey": "applicant.address",
+        "page": 0,
+        "x": 148,
+        "y": 225,
+        "width": 413,
+        "height": 28,
+        "fontSize": 8,
+        "type": "text",
+        "label": "Адрес заявителя для корреспонденции"
+      },
+      {
+        "id": "ingos-o-statement-owner-full-address",
+        "dataKey": "owner.address",
+        "page": 0,
+        "x": 70,
+        "y": 349,
+        "width": 491,
+        "height": 27,
+        "fontSize": 8,
+        "type": "text",
+        "label": "Адрес собственника"
       }
     ]
   },
@@ -15761,7 +15730,7 @@
       {
         "id": "ingos-o-notice-0-220-209-check",
         "dataKey": "extra.ingos-o-notice.circumstance1",
-        "label": "Участник А — обстоятельство ДТП № 1",
+        "label": "Участник А: Автомобиль стоял на стоянке, парковке, обочине",
         "page": 0,
         "x": 220,
         "y": 209,
@@ -15773,7 +15742,7 @@
       {
         "id": "ingos-o-notice-0-220-226-check",
         "dataKey": "extra.ingos-o-notice.circumstance2",
-        "label": "Участник А — обстоятельство ДТП № 2",
+        "label": "Участник А: Двигался на стоянке",
         "page": 0,
         "x": 220,
         "y": 226,
@@ -15785,7 +15754,7 @@
       {
         "id": "ingos-o-notice-0-220-239-check",
         "dataKey": "extra.ingos-o-notice.circumstance3",
-        "label": "Участник А — обстоятельство ДТП № 3",
+        "label": "Участник А: Выезжал со стоянки, парковки, обочины, двора или второстепенной дороги",
         "page": 0,
         "x": 220,
         "y": 239,
@@ -15797,7 +15766,7 @@
       {
         "id": "ingos-o-notice-0-220-257-check",
         "dataKey": "extra.ingos-o-notice.circumstance4",
-        "label": "Участник А — обстоятельство ДТП № 4",
+        "label": "Участник А: Заезжал на стоянку, парковку, во двор или на второстепенную дорогу",
         "page": 0,
         "x": 220,
         "y": 257,
@@ -15809,7 +15778,7 @@
       {
         "id": "ingos-o-notice-0-220-273-check",
         "dataKey": "extra.ingos-o-notice.circumstance5",
-        "label": "Участник А — обстоятельство ДТП № 5",
+        "label": "Участник А: Двигался прямо, не маневрировал",
         "page": 0,
         "x": 220,
         "y": 273,
@@ -15821,7 +15790,7 @@
       {
         "id": "ingos-o-notice-0-220-285-check",
         "dataKey": "extra.ingos-o-notice.circumstance6",
-        "label": "Участник А — обстоятельство ДТП № 6",
+        "label": "Участник А: Заезжал на перекрёсток",
         "page": 0,
         "x": 220,
         "y": 285,
@@ -15833,7 +15802,7 @@
       {
         "id": "ingos-o-notice-0-220-305-check",
         "dataKey": "extra.ingos-o-notice.circumstance7",
-        "label": "Участник А — обстоятельство ДТП № 7",
+        "label": "Участник А: Заезжал на перекрёсток с круговым движением",
         "page": 0,
         "x": 220,
         "y": 305,
@@ -15845,7 +15814,7 @@
       {
         "id": "ingos-o-notice-0-220-322-check",
         "dataKey": "extra.ingos-o-notice.circumstance8",
-        "label": "Участник А — обстоятельство ДТП № 8",
+        "label": "Участник А: Двигался на перекрёстке с круговым движением",
         "page": 0,
         "x": 220,
         "y": 322,
@@ -15857,7 +15826,7 @@
       {
         "id": "ingos-o-notice-0-220-340-check",
         "dataKey": "extra.ingos-o-notice.circumstance9",
-        "label": "Участник А — обстоятельство ДТП № 9",
+        "label": "Участник А: Столкнулся с ТС, двигавшимся в том же направлении по той же полосе",
         "page": 0,
         "x": 220,
         "y": 340,
@@ -15869,7 +15838,7 @@
       {
         "id": "ingos-o-notice-0-220-364-check",
         "dataKey": "extra.ingos-o-notice.circumstance10",
-        "label": "Участник А — обстоятельство ДТП № 10",
+        "label": "Участник А: Столкнулся с ТС, двигавшимся в том же направлении по другой полосе",
         "page": 0,
         "x": 220,
         "y": 364,
@@ -15881,7 +15850,7 @@
       {
         "id": "ingos-o-notice-0-220-383-check",
         "dataKey": "extra.ingos-o-notice.circumstance11",
-        "label": "Участник А — обстоятельство ДТП № 11",
+        "label": "Участник А: Менял полосу, перестраивался",
         "page": 0,
         "x": 220,
         "y": 383,
@@ -15893,7 +15862,7 @@
       {
         "id": "ingos-o-notice-0-220-396-check",
         "dataKey": "extra.ingos-o-notice.circumstance12",
-        "label": "Участник А — обстоятельство ДТП № 12",
+        "label": "Участник А: Обгонял",
         "page": 0,
         "x": 220,
         "y": 396,
@@ -15905,7 +15874,7 @@
       {
         "id": "ingos-o-notice-0-220-409-check",
         "dataKey": "extra.ingos-o-notice.circumstance13",
-        "label": "Участник А — обстоятельство ДТП № 13",
+        "label": "Участник А: Поворачивал направо",
         "page": 0,
         "x": 220,
         "y": 409,
@@ -15917,7 +15886,7 @@
       {
         "id": "ingos-o-notice-0-220-420-check",
         "dataKey": "extra.ingos-o-notice.circumstance14",
-        "label": "Участник А — обстоятельство ДТП № 14",
+        "label": "Участник А: Поворачивал налево",
         "page": 0,
         "x": 220,
         "y": 420,
@@ -15929,7 +15898,7 @@
       {
         "id": "ingos-o-notice-0-220-431-check",
         "dataKey": "extra.ingos-o-notice.circumstance15",
-        "label": "Участник А — обстоятельство ДТП № 15",
+        "label": "Участник А: Совершал разворот",
         "page": 0,
         "x": 220,
         "y": 431,
@@ -15941,7 +15910,7 @@
       {
         "id": "ingos-o-notice-0-220-443-check",
         "dataKey": "extra.ingos-o-notice.circumstance16",
-        "label": "Участник А — обстоятельство ДТП № 16",
+        "label": "Участник А: Двигался задним ходом",
         "page": 0,
         "x": 220,
         "y": 443,
@@ -15953,7 +15922,7 @@
       {
         "id": "ingos-o-notice-0-220-455-check",
         "dataKey": "extra.ingos-o-notice.circumstance17",
-        "label": "Участник А — обстоятельство ДТП № 17",
+        "label": "Участник А: Выехал на полосу встречного движения",
         "page": 0,
         "x": 220,
         "y": 455,
@@ -15965,7 +15934,7 @@
       {
         "id": "ingos-o-notice-0-220-481-check",
         "dataKey": "extra.ingos-o-notice.circumstance18",
-        "label": "Участник А — обстоятельство ДТП № 18",
+        "label": "Участник А: Второе ТС находилось справа",
         "page": 0,
         "x": 220,
         "y": 481,
@@ -15977,7 +15946,7 @@
       {
         "id": "ingos-o-notice-0-220-493-check",
         "dataKey": "extra.ingos-o-notice.circumstance19",
-        "label": "Участник А — обстоятельство ДТП № 19",
+        "label": "Участник А: Не выполнил требование знака приоритета",
         "page": 0,
         "x": 220,
         "y": 493,
@@ -15989,7 +15958,7 @@
       {
         "id": "ingos-o-notice-0-220-511-check",
         "dataKey": "extra.ingos-o-notice.circumstance20",
-        "label": "Участник А — обстоятельство ДТП № 20",
+        "label": "Участник А: Совершил наезд на неподвижное ТС, препятствие или иное неподвижное препятствие",
         "page": 0,
         "x": 220,
         "y": 511,
@@ -16001,7 +15970,7 @@
       {
         "id": "ingos-o-notice-0-220-528-check",
         "dataKey": "extra.ingos-o-notice.circumstance21",
-        "label": "Участник А — обстоятельство ДТП № 21",
+        "label": "Участник А: Остановился у запрещающего сигнала светофора",
         "page": 0,
         "x": 220,
         "y": 528,
@@ -16013,7 +15982,7 @@
       {
         "id": "ingos-o-notice-0-220-544-check",
         "dataKey": "extra.ingos-o-notice.circumstance22",
-        "label": "Участник А — обстоятельство ДТП № 22",
+        "label": "Участник А: Иное",
         "page": 0,
         "x": 220,
         "y": 544,
@@ -16255,7 +16224,7 @@
       {
         "id": "ingos-o-notice-0-377-209-check",
         "dataKey": "extra.ingos-o-notice.circumstanceother.1",
-        "label": "Участник Б — обстоятельство ДТП № 1",
+        "label": "Участник Б: Автомобиль стоял на стоянке, парковке, обочине",
         "page": 0,
         "x": 377,
         "y": 209,
@@ -16267,7 +16236,7 @@
       {
         "id": "ingos-o-notice-0-377-226-check",
         "dataKey": "extra.ingos-o-notice.circumstanceother.2",
-        "label": "Участник Б — обстоятельство ДТП № 2",
+        "label": "Участник Б: Двигался на стоянке",
         "page": 0,
         "x": 377,
         "y": 226,
@@ -16279,7 +16248,7 @@
       {
         "id": "ingos-o-notice-0-377-239-check",
         "dataKey": "extra.ingos-o-notice.circumstanceother.3",
-        "label": "Участник Б — обстоятельство ДТП № 3",
+        "label": "Участник Б: Выезжал со стоянки, парковки, обочины, двора или второстепенной дороги",
         "page": 0,
         "x": 377,
         "y": 239,
@@ -16291,7 +16260,7 @@
       {
         "id": "ingos-o-notice-0-377-257-check",
         "dataKey": "extra.ingos-o-notice.circumstanceother.4",
-        "label": "Участник Б — обстоятельство ДТП № 4",
+        "label": "Участник Б: Заезжал на стоянку, парковку, во двор или на второстепенную дорогу",
         "page": 0,
         "x": 377,
         "y": 257,
@@ -16303,7 +16272,7 @@
       {
         "id": "ingos-o-notice-0-377-273-check",
         "dataKey": "extra.ingos-o-notice.circumstanceother.5",
-        "label": "Участник Б — обстоятельство ДТП № 5",
+        "label": "Участник Б: Двигался прямо, не маневрировал",
         "page": 0,
         "x": 377,
         "y": 273,
@@ -16315,7 +16284,7 @@
       {
         "id": "ingos-o-notice-0-377-285-check",
         "dataKey": "extra.ingos-o-notice.circumstanceother.6",
-        "label": "Участник Б — обстоятельство ДТП № 6",
+        "label": "Участник Б: Заезжал на перекрёсток",
         "page": 0,
         "x": 377,
         "y": 285,
@@ -16327,7 +16296,7 @@
       {
         "id": "ingos-o-notice-0-377-305-check",
         "dataKey": "extra.ingos-o-notice.circumstanceother.7",
-        "label": "Участник Б — обстоятельство ДТП № 7",
+        "label": "Участник Б: Заезжал на перекрёсток с круговым движением",
         "page": 0,
         "x": 377,
         "y": 305,
@@ -16339,7 +16308,7 @@
       {
         "id": "ingos-o-notice-0-377-322-check",
         "dataKey": "extra.ingos-o-notice.circumstanceother.8",
-        "label": "Участник Б — обстоятельство ДТП № 8",
+        "label": "Участник Б: Двигался на перекрёстке с круговым движением",
         "page": 0,
         "x": 377,
         "y": 322,
@@ -16351,7 +16320,7 @@
       {
         "id": "ingos-o-notice-0-377-340-check",
         "dataKey": "extra.ingos-o-notice.circumstanceother.9",
-        "label": "Участник Б — обстоятельство ДТП № 9",
+        "label": "Участник Б: Столкнулся с ТС, двигавшимся в том же направлении по той же полосе",
         "page": 0,
         "x": 377,
         "y": 340,
@@ -16363,7 +16332,7 @@
       {
         "id": "ingos-o-notice-0-377-364-check",
         "dataKey": "extra.ingos-o-notice.circumstanceother.10",
-        "label": "Участник Б — обстоятельство ДТП № 10",
+        "label": "Участник Б: Столкнулся с ТС, двигавшимся в том же направлении по другой полосе",
         "page": 0,
         "x": 377,
         "y": 364,
@@ -16375,7 +16344,7 @@
       {
         "id": "ingos-o-notice-0-377-383-check",
         "dataKey": "extra.ingos-o-notice.circumstanceother.11",
-        "label": "Участник Б — обстоятельство ДТП № 11",
+        "label": "Участник Б: Менял полосу, перестраивался",
         "page": 0,
         "x": 377,
         "y": 383,
@@ -16387,7 +16356,7 @@
       {
         "id": "ingos-o-notice-0-377-396-check",
         "dataKey": "extra.ingos-o-notice.circumstanceother.12",
-        "label": "Участник Б — обстоятельство ДТП № 12",
+        "label": "Участник Б: Обгонял",
         "page": 0,
         "x": 377,
         "y": 396,
@@ -16399,7 +16368,7 @@
       {
         "id": "ingos-o-notice-0-377-409-check",
         "dataKey": "extra.ingos-o-notice.circumstanceother.13",
-        "label": "Участник Б — обстоятельство ДТП № 13",
+        "label": "Участник Б: Поворачивал направо",
         "page": 0,
         "x": 377,
         "y": 409,
@@ -16411,7 +16380,7 @@
       {
         "id": "ingos-o-notice-0-377-420-check",
         "dataKey": "extra.ingos-o-notice.circumstanceother.14",
-        "label": "Участник Б — обстоятельство ДТП № 14",
+        "label": "Участник Б: Поворачивал налево",
         "page": 0,
         "x": 377,
         "y": 420,
@@ -16423,7 +16392,7 @@
       {
         "id": "ingos-o-notice-0-377-431-check",
         "dataKey": "extra.ingos-o-notice.circumstanceother.15",
-        "label": "Участник Б — обстоятельство ДТП № 15",
+        "label": "Участник Б: Совершал разворот",
         "page": 0,
         "x": 377,
         "y": 431,
@@ -16435,7 +16404,7 @@
       {
         "id": "ingos-o-notice-0-377-443-check",
         "dataKey": "extra.ingos-o-notice.circumstanceother.16",
-        "label": "Участник Б — обстоятельство ДТП № 16",
+        "label": "Участник Б: Двигался задним ходом",
         "page": 0,
         "x": 377,
         "y": 443,
@@ -16447,7 +16416,7 @@
       {
         "id": "ingos-o-notice-0-377-455-check",
         "dataKey": "extra.ingos-o-notice.circumstanceother.17",
-        "label": "Участник Б — обстоятельство ДТП № 17",
+        "label": "Участник Б: Выехал на полосу встречного движения",
         "page": 0,
         "x": 377,
         "y": 455,
@@ -16459,7 +16428,7 @@
       {
         "id": "ingos-o-notice-0-377-481-check",
         "dataKey": "extra.ingos-o-notice.circumstanceother.18",
-        "label": "Участник Б — обстоятельство ДТП № 18",
+        "label": "Участник Б: Второе ТС находилось справа",
         "page": 0,
         "x": 377,
         "y": 481,
@@ -16471,7 +16440,7 @@
       {
         "id": "ingos-o-notice-0-377-493-check",
         "dataKey": "extra.ingos-o-notice.circumstanceother.19",
-        "label": "Участник Б — обстоятельство ДТП № 19",
+        "label": "Участник Б: Не выполнил требование знака приоритета",
         "page": 0,
         "x": 377,
         "y": 493,
@@ -16483,7 +16452,7 @@
       {
         "id": "ingos-o-notice-0-377-511-check",
         "dataKey": "extra.ingos-o-notice.circumstanceother.20",
-        "label": "Участник Б — обстоятельство ДТП № 20",
+        "label": "Участник Б: Совершил наезд на неподвижное ТС, препятствие или иное неподвижное препятствие",
         "page": 0,
         "x": 377,
         "y": 511,
@@ -16495,7 +16464,7 @@
       {
         "id": "ingos-o-notice-0-377-528-check",
         "dataKey": "extra.ingos-o-notice.circumstanceother.21",
-        "label": "Участник Б — обстоятельство ДТП № 21",
+        "label": "Участник Б: Остановился у запрещающего сигнала светофора",
         "page": 0,
         "x": 377,
         "y": 528,
@@ -16507,7 +16476,7 @@
       {
         "id": "ingos-o-notice-0-377-544-check",
         "dataKey": "extra.ingos-o-notice.circumstanceother.22",
-        "label": "Участник Б — обстоятельство ДТП № 22",
+        "label": "Участник Б: Иное",
         "page": 0,
         "x": 377,
         "y": 544,
@@ -18847,6 +18816,52 @@
         "type": "check",
         "fontSize": 8,
         "equals": "Место жительства"
+      },
+      {
+        "id": "ingos-o-questionnaire-photoYes",
+        "label": "Есть фото / видео с места ДТП — да",
+        "page": 0,
+        "x": 295.97,
+        "y": 68.28,
+        "width": 9.84,
+        "height": 9.86,
+        "type": "check",
+        "dataKey": "event.evidence",
+        "equals": "Да"
+      },
+      {
+        "id": "ingos-o-questionnaire-photoNo",
+        "label": "Есть фото / видео с места ДТП — нет",
+        "page": 0,
+        "x": 336.55,
+        "y": 68.28,
+        "width": 9.84,
+        "height": 9.86,
+        "type": "check",
+        "dataKey": "event.evidence",
+        "equals": "Нет"
+      },
+      {
+        "id": "ingos-o-questionnaire-providePhoto",
+        "label": "Согласен предоставить фото / видео Ингосстраху",
+        "page": 0,
+        "x": 558.58,
+        "y": 68.28,
+        "width": 9.86,
+        "height": 9.86,
+        "type": "check",
+        "dataKey": "extra.ingos-o-questionnaire.providePhoto"
+      },
+      {
+        "id": "ingos-o-questionnaire-moneyForm",
+        "label": "Выбираю денежную форму возмещения и отказываюсь от организации ремонта",
+        "page": 0,
+        "x": 37.25,
+        "y": 121.54,
+        "width": 10.25,
+        "height": 10,
+        "type": "check",
+        "dataKey": "extra.ingos-o-questionnaire.moneyForm"
       }
     ]
   },
